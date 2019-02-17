@@ -51,7 +51,7 @@ var url = "mongodb://localhost:27017/phonecasedata";
 
 //셰이플리
 // var func_shapely= new Promise(function (resolve, reject){
-//     request('https://shapely.co.kr/product/list.html?cate_no=2171',function(error, response, body){
+//     request('https://shapely.co.kr/product/list.html?cate_no=1926',function(error, response, body){
 //         if(error) throw error
 //         $= cheerio.load(body);
     
@@ -164,28 +164,6 @@ var url = "mongodb://localhost:27017/phonecasedata";
 // )
 
 
-//꽁몰-----이미지X----
-// var func_kkongmall= new Promise(function (resolve, reject){
-//     request('https://smartstore.naver.com/kkongmall/category/3b9737a43f4c4d7d8aa9691df0894ab1?cp=1',function(error, response, body){
-//         if(error) throw error
-//         $= cheerio.load(body);
-    
-//         let json=[], name, price, img, url
-//         $('div#content>div>form>div>ul.list>li.item').each(function(index, ele){
-//             name=$(this).find('a>strong.title').attr('title')
-//             price=$(this).find('a>div.area_price>strong:nth-child(1)>span.number').text()
-//             img=$(this).find('a>div.thumbnail>img').attr('src')
-//             url=$(this).find('a').attr('href')
-//             url='https://smartstore.naver.com'+url
-//             json.push({name:name, price:price, img:img, url:url})
-//         });
-        
-//         console.log(json)
-//         resolve(json)
-//     })
-// }
-// )
-
 //폰키파
 // var func_ponkipa= new Promise(function (resolve, reject){
 //     request('http://ponkipa.com/goods/goods_list.php?cateCd=125069',function(error, response, body){
@@ -201,31 +179,6 @@ var url = "mongodb://localhost:27017/phonecasedata";
 //             url=url.substr(2,url.length)
 //             img="http://ponkipa.com"+img
 //             url='http://ponkipa.com'+url
-//             json.push({name:name, price:price, img:img, url:url})
-//         })
-        
-//         console.log(json)
-//         resolve(json)
-//     })
-// }
-// )
-
-
-//디팍스 --- 상품명 수정!!
-// var func_dparks= new Promise(function (resolve, reject){
-//     request('http://dparks.co.kr/product/list.html?cate_no=393',function(error, response, body){
-//         if(error) throw error
-//         $= cheerio.load(body);
-    
-//         let json=[], name, price, img, url
-//         $('ul.prdList.grid4>li').each(function(index, ele){
-//             name=$(this).find('div.description>p.name>a').text()
-//             price=$(this).find('div.description>ul>li>span[style*="color:#333333"]').text().replace("원","")
-//             img=$(this).find('div.thumbnail.outline>a>div.add_thumb>img').attr('src')
-//             url=$(this).find('div.thumbnail.outline>a').attr('href')
-//             name=name.substr(6,name.length)
-//             img='http:'+img
-//             url='http://dparks.co.kr'+url
 //             json.push({name:name, price:price, img:img, url:url})
 //         })
         
@@ -260,7 +213,80 @@ var url = "mongodb://localhost:27017/phonecasedata";
 // )
 
 
-//프롬달
+
+//통큰준구씨 - 아이폰쇼핑몰
+// var func_jungucase= new Promise(function (resolve, reject){
+//     request('http://jungucase.com/product/list.html?cate_no=88',function(error, response, body){
+//         if(error) throw error
+//         $= cheerio.load(body);
+    
+//         let json=[], name, price, img, url
+//         $('ul.romi_prdList.itemline4>li>div.box').each(function(index, ele){
+//             name=$(this).find('p.name>a>span').text()
+//             price=$(this).find('ul>li>span[style*="color:#000000"]').text().replace("원","").trim()
+//             img=$(this).find('a>img').attr('src')
+//             url=$(this).find('a').attr('href')
+//             img='http:'+img
+//             url='http://jungucase.com'+url
+//             json.push({name:name, price:price, img:img, url:url})
+//         })
+        
+//         console.log(json)
+//         resolve(json)
+//     })
+// }
+// )
+
+
+//꽁몰-----이미지X----
+// var func_kkongmall= new Promise(function (resolve, reject){
+//     request('https://smartstore.naver.com/kkongmall/category/3b9737a43f4c4d7d8aa9691df0894ab1?cp=1',function(error, response, body){
+//         if(error) throw error
+//         $= cheerio.load(body);
+    
+//         let json=[], name, price, img, url
+//         $('div#content>div>form>div>ul.list>li.item').each(function(index, ele){
+//             name=$(this).find('a>strong.title').attr('title')
+//             price=$(this).find('a>div.area_price>strong:nth-child(1)>span.number').text()
+//             img=$(this).find('a>div.thumbnail>img').attr('src')
+//             url=$(this).find('a').attr('href')
+//             url='https://smartstore.naver.com'+url
+//             json.push({name:name, price:price, img:img, url:url})
+//         });
+        
+//         console.log(json)
+//         resolve(json)
+//     })
+// }
+// )
+
+
+//디팍스 --- 상품명 수정!!
+// var func_dparks= new Promise(function (resolve, reject){
+//     request('http://dparks.co.kr/product/list.html?cate_no=393',function(error, response, body){
+//         if(error) throw error
+//         $= cheerio.load(body);
+    
+//         let json=[], name, price, img, url
+//         $('ul.prdList.grid4>li').each(function(index, ele){
+//             name=$(this).find('div.description>p.name>a').text()
+//             price=$(this).find('div.description>ul>li>span[style*="color:#333333"]').text().replace("원","")
+//             img=$(this).find('div.thumbnail.outline>a>div.add_thumb>img').attr('src')
+//             url=$(this).find('div.thumbnail.outline>a').attr('href')
+//             name=name.substr(6,name.length)
+//             img='http:'+img
+//             url='http://dparks.co.kr'+url
+//             json.push({name:name, price:price, img:img, url:url})
+//         })
+        
+//         console.log(json)
+//         resolve(json)
+//     })
+// }
+// )
+
+
+//프롬달  ->기종별 구분 X
 // var func_sfrom_dal= new Promise(function (resolve, reject){
 //     request('http://from-dal.com/goods/goods_list.php?cateCd=009019',function(error, response, body){
 //         if(error) throw error
@@ -275,30 +301,6 @@ var url = "mongodb://localhost:27017/phonecasedata";
 //             url=url.substr(2,url.length)
 //             img='http://from-dal.com'+img
 //             url='http://from-dal.com'+url
-//             json.push({name:name, price:price, img:img, url:url})
-//         })
-        
-//         console.log(json)
-//         resolve(json)
-//     })
-// }
-// )
-
-
-//통큰준구씨
-// var func_jungucase= new Promise(function (resolve, reject){
-//     request('http://jungucase.com/product/list.html?cate_no=88',function(error, response, body){
-//         if(error) throw error
-//         $= cheerio.load(body);
-    
-//         let json=[], name, price, img, url
-//         $('ul.romi_prdList.itemline4>li>div.box').each(function(index, ele){
-//             name=$(this).find('p.name>a>span').text()
-//             price=$(this).find('ul>li>span[style*="color:#000000"]').text().replace("원","").trim()
-//             img=$(this).find('a>img').attr('src')
-//             url=$(this).find('a').attr('href')
-//             img='http:'+img
-//             url='http://jungucase.com'+url
 //             json.push({name:name, price:price, img:img, url:url})
 //         })
         
